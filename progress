@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# TODO:
+# Change `cat` to a fonction that will interpret what is written in the file
+# Doing this we prevent the file to be unreadable due to colors writing.
+
+file="$HOME/.progress"
+
+# Colors
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+ORANGE=`tput setaf 3`
+BLUE=`tput setaf 4`
+PURPLE=`tput setaf 5`
+GREY=`tput setaf 6`
+WHITE=`tput setaf 7`
+
+write_msg (){
+    today=`date +%m/%d/%y`
+    # hour=`date +%H:%M:%S`
+    if [[ $2 ]]; then
+        echo -e "- [$today] $1 |$2|"
+    else
+        echo -e "- [$today] $1"
+    fi
+}
+
+read_file () {
+   while read line
+   do
+       echo ${RED}$line | awk '{print $1,$2}'
+       echo ${WHITE}$line | awk -F ']' '{print $2}' 
+   done < "$1"
+}
+
+# File existence
+if [[ ! -f $file ]]; then
+    touch $file
+fi
+
+# Argument parser 
+
+# Print today progress
+if [[ ! $1 ]]; then
+    today=`date +%m/%d/%y`
+    grep "$today" $file
+
+    nb=`grep -c "$today" $file`
+    echo "$nb more steps today."
+
+# Print all the progresses
+elif [[ $1 == -a ]]; then
+    cat $file
+
+# Edit the file
+elif [[ $1 == -e ]]; then
+    nano $file
+
+# Add a progress
+elif [[ "$*" ]]; then
+    # echo "-" $1 >> $file
+    write_msg "$1" $2 >> $file
+fi
