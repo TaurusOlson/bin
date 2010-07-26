@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# What I've done from dawn...
+
+file="$HOME/.todolist"
+
+# Colors
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+ORANGE=`tput setaf 3`
+BLUE=`tput setaf 4`
+PURPLE=`tput setaf 5`
+GREY=`tput setaf 6`
+WHITE=`tput setaf 7`
+
+write_msg (){
+    today=`date +%m/%d/%y`
+    # hour=`date +%H:%M:%S`
+    if [[ $2 ]]; then
+        echo -e "- ${ORANGE}[$today] ${WHITE}$1 ${RED}|$2|"
+    else
+        echo -e "- ${ORANGE}[$today] ${WHITE}$1"
+    fi
+}
+
+# File existence
+if [[ ! -f $file ]]; then
+    touch $file
+fi
+
+# Argument parser 
+if [[ ! $1 ]]; then
+    cat $file
+elif [[ $1 == -e ]]; then
+    nano $file
+elif [[ "$*" ]]; then
+    # echo "-" $1 >> $file
+    write_msg "$1" $2 >> $file
+fi
