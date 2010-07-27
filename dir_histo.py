@@ -1,6 +1,10 @@
 #!/usr/bin/python
 # dir_histo.py -- Viusalisation of the histogram of the files present in the current directory
+<<<<<<< HEAD
 # @Author:      Taurus Olson (<+EMAIL+>)
+=======
+# @Author:      Taurus Olson <taurusolson@gmail.com>
+>>>>>>> b35de9a022aecfcdba997dcef157da9fc67ffebd
 # @Website:     <+WWW+>
 # @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
 # @Created:     2009-09-20.
