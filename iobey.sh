@@ -2,8 +2,8 @@
 # ------------------------------------------------
 # @Filename    : iobey.sh
 # @Date        : 2010-07-26
-# @Author      : Damien RABOIS
-# @Email       : <damien.rabois@cesr.fr>
+# @Author      : Taurus Olson
+# @Email       : <taurusolson@gmail.com>
 # @Last Change : 
 # @Revision    : 0.0
 # ------------------------------------------------
