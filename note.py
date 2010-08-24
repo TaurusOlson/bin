@@ -5,7 +5,7 @@
 # Filename   : note.py
 # Created    : 2010-08-24
 # Description: 
-# Author     : Damien RABOIS <<damien.rabois@cesr.fr>>
+# Author     : Taurus Olson <<taurusolson@gmail.com>>
 # Last Change:
 # Version    : 
 # TODO       : Continue the script...
