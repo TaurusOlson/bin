@@ -23,5 +23,17 @@ if len(sys.argv) == 1:
             print project
 
 entry = None
+# Edit an existing project
 if len(sys.argv) == 2 and os.path.exists(os.path.join(PROJECTS_DIR, sys.argv[1])):
-    print "OK"
+    while entry != 'exit' or entry != 'quit':
+        entry = raw_input(":")
+        if entry == 'exit' or entry == 'quit':
+            break
+
+# Edit a new project
+elif len(sys.argv) == 2 and not os.path.exists(os.path.join(PROJECTS_DIR, sys.argv[1])):
+    print "%s is about to be created." % sys.argv[1]
+    while entry != 'exit' or entry != 'quit':
+        entry = raw_input(":")
+        if entry == 'exit' or entry == 'quit':
+            break
