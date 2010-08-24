@@ -13,7 +13,8 @@
 
 import sys, os
 
-PROJECTS_DIR = "/Users/drabois/Documents/Outlines/Projects"
+
+PROJECTS_DIR = os.getenv('HOME') + "/Documents/Outlines/Projects"
 EXCLUDED     = ('README')
 
 if len(sys.argv) == 1:
