@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $# == 2 ]]; then
+    file_diffed_1=$1
+    file_diffed_2=$2
+    diff -up $file_diffed_1 $file_diffed_2 > file.diff
+    patch $file_diffed_1 file.diff
+    echo "$file_diffed_1 has been patched."
+else
+    echo "merge - Simply patch a file."
+    echo
+    echo "Usage:"
+    echo "merge FILE_TO_PATCH FILE_TO_DIFF"
+    echo ""
+fi
