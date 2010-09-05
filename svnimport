@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Import a SVN project
+
+PROJECT=$1
+SVNREPO=$2
+BASENAME=`basename $PROJECT`
+
+if [[ $# != 2 ]]; then
+    echo "svimport - Quickly import of project with SVN"
+    echo
+    echo "Usage:"
+    echo "svnimport PROJECT_NAME SVN_REPO"
+    echo
+fi
+
+svn import $PROJECT $SVNREPO/$BASENAME/trunk -m "Initial import of $BASENAME"
+mkdir backup
+mv $PROJECT backup/
+
+svn co $SVN/$PROJECT
+
+echo "$BASENAME has been saved in the directory backup."
+echo "You can remove it if you want."
