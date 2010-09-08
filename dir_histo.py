@@ -4,7 +4,7 @@
 # @Website:     <+WWW+>
 # @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
 # @Created:     2009-09-20.
-# @Revision:    0.1
+# @Revision:    0.2
 #
 # = Description
 # = Usage
