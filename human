@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Human readable manpages in the console
+man $1 | col -b
