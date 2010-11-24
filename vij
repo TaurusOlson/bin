@@ -3,12 +3,13 @@
 # Quickly edit your Jekyll posts with Vim.
 
 DATE=$(date "+%Y-%m-%d")
+POST_DATE=$(date "+%d %h %Y")
 BLOG_PATH=$DROP/DrJekyll/_posts
 
 if [[ $# -gt 0 ]]; then
     TITLE="$@"
     POST=${DATE}-${TITLE}
-    LINE=6
+    LINE=11
 else
     POST=
     LINE=
@@ -20,6 +21,10 @@ init_post () {
     echo "layout: post"
     echo "title: "
     echo "---"
+    echo -e "\n"
+    echo -e "# {{ page.title }}"
+    echo
+    echo -e "<p class='meta'> ${POST_DATE} </p>"
     echo -e "\n"
 }
 
