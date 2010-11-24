@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Quickly edit your Jekyll posts with Vim.
+
+DATE=$(date "+%Y-%m-%d")
+BLOG_PATH=$DROP/DrJekyll/_posts
+
+if [[ $# -gt 0 ]]; then
+    TITLE="$@"
+    POST=${DATE}-${TITLE}
+    LINE=6
+else
+    POST=
+    LINE=
+fi
+
+
+init_post () {
+    echo "---"
+    echo "layout: post"
+    echo "title: "
+    echo "---"
+    echo -e "\n"
+}
+
+init_post > ${BLOG_PATH}/${POST}
+vi +$LINE ${BLOG_PATH}/${POST}
+
