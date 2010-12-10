@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ ! -d doc ]]
+then
+    mkdir doc && echo "doc directory has been created."
+    cd doc
+    sphinx-quickstart
+else
+    echo 'A doc directory already exists.'
+fi

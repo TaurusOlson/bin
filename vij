@@ -12,7 +12,7 @@ if [[ $# -gt 0 ]]; then
     LINE=11
 else
     POST=
-    LINE=
+    LINE=1
 fi
 
 
