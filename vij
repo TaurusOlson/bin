@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # Quickly edit your Jekyll posts with Vim.
+# Modify BLOG_PATH at your convenience
+
 
 DATE=$(date "+%Y-%m-%d")
 POST_DATE=$(date "+%d %h %Y")
 BLOG_PATH=$DROP/DrJekyll/_posts
+VI=/usr/local/bin/vim
 
 if [[ $# -gt 0 ]]; then
     TITLE="$@"
@@ -29,5 +32,5 @@ init_post () {
 }
 
 init_post > ${BLOG_PATH}/${POST}
-vi +$LINE ${BLOG_PATH}/${POST}
+$VI +$LINE ${BLOG_PATH}/${POST}
 
