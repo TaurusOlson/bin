@@ -57,7 +57,11 @@ elif [[ $1 == -e ]]; then
     nano $file
 
 # Add a progress
-elif [[ "$*" ]]; then
+elif [[ "$*" && $1 != -g ]]; then
     # echo "-" $1 >> $file
     write_msg "$1" $2 >> $file
+
+# Grep words
+elif [[ $1 == -g && "$*" ]]; then
+    cat $file | grep "$2"
 fi
