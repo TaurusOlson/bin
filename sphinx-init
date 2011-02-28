@@ -8,3 +8,11 @@ then
 else
     echo 'A doc directory already exists.'
 fi
+
+
+# Check if the path to the module is in $PYTHONPATH
+# echo $PYTHONPATH | awk -F ':' '{ for (i=1; i < NF; i++)
+#                                     if ($i == $PWD) {
+#                                     present = 1
+#                                     }
+# }
