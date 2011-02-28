@@ -8,19 +8,21 @@
 # ------------------------------------------------
 
 url=$(git config --get-all remote.origin.url)
-browser=open
 
+browse() {
+    open -a Firefox.app $1
+}
 
 # remote.origin.url starts with https
 if [[ $(echo $url | grep "^http") ]]; then
     new_url=$(echo $url | sed 's/\.git$//')
-    $browser $new_url
+    browse $new_url
 
 
 # remote.origin.url starts with git
 elif [[ $(echo $url | grep "^git") ]]; then
     new_url=$(echo $url | sed 's/\.git$//')
     new_url=$(echo $new_url | sed 's/^git/https/')
-    $browser $new_url
+    browse $new_url
 
 fi
