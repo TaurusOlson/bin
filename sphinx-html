@@ -1,5 +1,9 @@
 #!/bin/bash
 
+gc() {
+    urls="$@"
+    open -a Google\ Chrome.app $urls
+}
 
 get_cwd( ) {
     echo $PWD | awk -F'/' '{print $(NF)}'        
@@ -9,6 +13,6 @@ if [[ $(get_cwd) == 'doc' ]]
 then
     # rm -rf 
     make html
-    open _build/html/index.html
+    gc _build/html/index.html
 fi
 
