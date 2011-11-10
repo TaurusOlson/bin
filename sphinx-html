@@ -1,14 +1,12 @@
 #!/bin/bash
 
+set -e
 
-get_cwd( ) {
-    echo $PWD | awk -F'/' '{print $(NF)}'        
-}
-
-if [[ $(get_cwd) == 'doc' ]] 
-then
-    # rm -rf 
+if [ -d doc ]; then
+    cd doc 
     make html
     open _build/html/index.html
+else
+    echo "Please launch this command in the project directory."
 fi
 

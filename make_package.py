@@ -6,7 +6,7 @@
 Filename   : make_package.py
 Created    : 2010-10-26
 Author     : Taurus Olson <taurusolson@gmail.com>
-Last Change: Mer fév 16 03:00  2011 C
+Last Change: Mar jul 12 02:00  2011 C
 
 
 The standard Python package can contain a __init.py__ file
