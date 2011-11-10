@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# A single script for multi-purpose tasks.
+#
+# "One to rule them all"
+#
+# Inspired by Tim Pope's tpope awesome script.
+
+ESC="\033["
+FG_RED=${ESC}31m    # red foreground
+FG_BLUE=${ESC}34m   # blue foreground
+DEFAULT=${ESC}0m    # reset everything to default
+
+[ -z "$PATH" ] && PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"
+
+exec_script() {
+    test -e $1 && exec $1 && exit 0
+    echo "Can't execute $1"
+}
+
+usage() {
+    echo -e ${FG_BLUE}\
+    "tolson - a single script for multi-purpose tasks\
+developed for my own needs"${DEFAULT}
+
+    cat <<EOF
+Usage: tolson COMMAND
+
+Available COMMANDs are:
+
+bundles|vimbundles: install vim bundles with git
+up                : display the current uptime (just a test)
+EOF
+    exit 1
+}
+
+
+# VIM BUNDLES
+
+case "$1" in
+    bundles|vimbundles)
+        exec_script vimbundles.sh
+        ;;
+    up)
+        exec_script up.sh
+        ;;
+    *)
+        usage
+esac
+
