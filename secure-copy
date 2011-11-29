@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# scp for lazy developers.
+
+usage() {
+    cat <<EOF
+secure-copy wraps scp into a fast secure copy of files to a remote server.
+
+Usage:
+secure-copy <file> <remote> {<dest-path>}
+
+EOF
+}
+
+[ $# -ne 2 ] && [ $# -ne 3 ] && usage && exit 0
+
+# Usage: secure-copy <file> <remote>
+# is equivalent to scp <file> <remove>:<file>
+[ $# -eq 2 ] && scp $1 $2:$1 && exit 0
+
+# Usage: secure-copy <file> <remote> <dest-path>
+# is equivalent to scp <file> <remove>:<dest-path>/<file>
+[ $# -eq 3 ] && scp $1 $2:$3/$1 && exit 0
