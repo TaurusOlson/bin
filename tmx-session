@@ -1,19 +1,19 @@
 #!/bin/bash
 
-SESSION=${1:-$HOST}
+SESSION=${1:-`hostname`}
 
 tmux new-session -d -s $SESSION
 
 case $SESSION in
     behemoth)
-        tmux new-window -t $SESSION:1 -a -n "nexus"
-        tmux new-window -t $SESSION:3 -a -n "media"
-        tmux new-window -t $SESSION:4 -a -n "mail"
+        tmux new-window -t $SESSION -a -n "nexus"
+        tmux new-window -t $SESSION -a -n "media"
+        tmux new-window -t $SESSION -a -n "mail"
         ;;
     wyvern)
-        tmux new-window -t $SESSION:1 -a -n "nexus"
-        tmux new-window -t $SESSION:2 -a -n "hipe"
-        tmux new-window -t $SESSION:3 -a -n "dev"
+        tmux new-window -t $SESSION -a -n "nexus"
+        tmux new-window -t $SESSION -a -n "hipe"
+        tmux new-window -t $SESSION -a -n "dev"
         ;;
 esac
 tmux -2 attach-session -t $SESSION
