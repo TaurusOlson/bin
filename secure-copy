@@ -12,7 +12,7 @@ secure-copy <file> <remote> {<dest-path>}
 EOF
 }
 
-[ $# -ne 2 ] && [ $# -ne 3 ] && usage && exit 0
+[ $# -lt 2 ] && usage && exit 0
 
 # Usage: secure-copy <file> <remote>
 # is equivalent to scp <file> <remove>:<file>
