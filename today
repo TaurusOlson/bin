@@ -1,9 +1,9 @@
 #!/bin/bash
 
-[[ $1 -eq -1 ]] && today=`date +%m/%d/%y` && echo $today
-[[ $1 -eq -2 ]] && today=`date +%m-%d-%y` && echo $today
-[[ $1 -eq -3 ]] && today=`date +%d/%m/%y` && echo $today
-[[ $1 -eq -4 ]] && today=`date +%d-%m-%y` && echo $today
+[[ $1 -eq -1 ]] && today=`date +%m/%d/%y` && echo $today && exit 0
+[[ $1 -eq -2 ]] && today=`date +%m-%d-%y` && echo $today && exit 0
+[[ $1 -eq -3 ]] && today=`date +%d/%m/%y` && echo $today && exit 0
+[[ $1 -eq -4 ]] && today=`date +%d-%m-%y` && echo $today && exit 0
 
 [ $# -ne 1 ] && 
 cat <<-EOF 
